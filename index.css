@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --jeopardy-blue: #060ce9;
+  --font-color-main: #fff;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(45deg, #061de3, #e306ca);
+  font-family: "Open Sans", sans-serif;
+  color: #d3d3d3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 350px;
+  height: 500px;
+  /* applies a greater 3D flip effect: */
+  perspective: 800px;
+}
+
+.container:hover > .card {
+  /* flipping */
+  /* transform: rotateY(180deg) rotateZ(180deg); */
+  transform: rotateY(180deg);
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  /* flipping */
+  transition: transform 1500ms;
+  /* treat as a 3D object and properly flip card */
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  /* hide the back: */
+  backface-visibility: hidden;
+}
+
+.front {
+  /* background-image: url(https://source.unsplash.com/random/350X500); */
+  background-color: #3a3a3a;
+  /* start from the front of the card: */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+}
+
+.back {
+  background-color: #3a3a3a;
+  /* start from the front of the card: */
+  /* transform: rotateY(180deg) rotateZ(180deg); */
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
